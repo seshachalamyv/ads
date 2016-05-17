@@ -1,0 +1,42 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html ng-app="ad">
+<head>
+
+
+	<title></title>
+
+
+<script type="text/javascript">
+	var app=angular.module('ad',[])
+app.controller('m', function($scope) {
+
+	$scope.s=<%=@ads.to_json.html_safe%>;	
+	
+
+});
+
+</script>
+
+</head>
+<body ng-controller="m"><input  type="search"ng-model="ss.$" ></input>
+ <label id="search">Search</label><input  type="search"ng-model="ss.name" ></input>
+<label>Date</label> <input type="checkbox" ng-false-value=""ng-true-value="<%=Time.now.strftime("%Y-%m-%d ")%>" ng-model="ss.date">
+ <label >Active</label><input  type="checkbox"  ng-model="ss.active" ></input>
+<input  type="checkbox"  ng-model="ss.balance" ></input>
+
+<ol >
+	<li ng-repeat="i in s |filter:ss:strict">
+		{{i.name}}-{{i.cost}}-{{i.enddate}}
+	</li>
+</ol>
+{{s}}
+</body>
+</html>
+
+
+
